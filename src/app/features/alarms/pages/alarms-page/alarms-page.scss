@@ -17,7 +17,7 @@
 
 .alarm-row {
   display: grid;
-  grid-template-columns: 52px 1fr 86px;
+  grid-template-columns: 52px 1fr 120px;
   align-items: center;
   gap: 0.8rem;
   min-height: 92px;
@@ -144,6 +144,14 @@
   background-color: rgba(10, 63, 134, 0.08);
 }
 
+.alarm-row__action--confirm {
+  color: $binx-success;
+}
+
+.alarm-row__action--confirm:hover {
+  background-color: rgba(16, 177, 60, 0.08);
+}
+
 .alarm-row__action--delete {
   color: $binx-danger;
 }
@@ -154,7 +162,7 @@
 
 @media (max-width: 991.98px) {
   .alarm-row {
-    grid-template-columns: 44px 1fr 72px;
+    grid-template-columns: 44px 1fr 112px;
   }
 
   .alarm-row__content {

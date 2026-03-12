@@ -1,0 +1,32 @@
+@use '../../../../styles/tokens' as *;
+
+.binx-modal {
+  padding: 1.25rem 1.25rem 1rem;
+}
+
+.binx-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.binx-modal__title {
+  margin: 0;
+  color: $binx-text;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.binx-modal__message {
+  margin: 0;
+  color: $binx-text-body;
+  font-size: $binx-font-size-sm;
+  line-height: 1.5;
+}
+
+.binx-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}

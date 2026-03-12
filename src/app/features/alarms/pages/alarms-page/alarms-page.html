@@ -61,10 +61,20 @@
 
           <button
             type="button"
+            class="alarm-row__action alarm-row__action--confirm"
+            aria-label="Confirmar acción"
+            title="Confirmar"
+            (click)="onConfirmAction(alarm)"
+          >
+            <i class="bi bi-check2-circle"></i>
+          </button>
+
+          <button
+            type="button"
             class="alarm-row__action alarm-row__action--delete"
             aria-label="Eliminar alarma"
             title="Eliminar"
-            (click)="onDelete(alarm.id)"
+            (click)="onDelete(alarm)"
           >
             <i class="bi bi-trash-fill"></i>
           </button>

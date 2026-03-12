@@ -1,1 +1,56 @@
-<p>integrations-page works!</p>
+<section class="integrations-page">
+  <header class="integrations-page__header">
+    <h1 class="page-title">Integraciones</h1>
+  </header>
+
+  <div class="integrations-list">
+    @for (integration of integrations; track integration.id) {
+      <article class="integration-row binx-card">
+        <div class="integration-row__main">
+          <div
+            class="integration-row__logo"
+            [ngClass]="getProviderClass(integration.provider)"
+            aria-hidden="true"
+          >
+            {{ getProviderLetter(integration.provider) }}
+          </div>
+
+          <div class="integration-row__info">
+            <h2 class="integration-row__title">{{ integration.name }}</h2>
+            <p class="integration-row__status">
+              {{ integration.connected ? 'Conectado' : 'No conectado' }}
+            </p>
+          </div>
+        </div>
+
+        <div class="integration-row__actions">
+          <button
+            type="button"
+            class="binx-btn binx-btn-secondary"
+            (click)="onDisconnect(integration.id)"
+            [disabled]="!integration.connected"
+          >
+            Desconectar
+          </button>
+
+          <button
+            type="button"
+            class="binx-btn binx-btn-primary"
+            (click)="onConnect(integration.id)"
+            [disabled]="integration.connected"
+          >
+            Conectar
+          </button>
+
+          <button
+            type="button"
+            class="binx-btn binx-btn-dark"
+            (click)="onImportRules(integration.id)"
+          >
+            Importar Reglas
+          </button>
+        </div>
+      </article>
+    }
+  </div>
+</section>

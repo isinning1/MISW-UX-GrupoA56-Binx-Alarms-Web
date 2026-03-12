@@ -1,0 +1,97 @@
+@use '../../../../../styles/tokens' as *;
+
+.preferences-page {
+  width: 100%;
+}
+
+.preferences-page__header {
+  margin-bottom: 1.2rem;
+}
+
+.preferences-card {
+  max-width: 760px;
+  padding: 1.2rem 1.1rem;
+  background-color: $binx-surface;
+}
+
+.preferences-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.preferences-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.preferences-form__group--checkbox {
+  gap: 0;
+}
+
+.preferences-form__label {
+  color: $binx-text;
+  font-size: $binx-font-size-sm;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.preferences-form__input {
+  max-width: 240px;
+}
+
+.preferences-form__checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $binx-text-body;
+  font-size: $binx-font-size-sm;
+}
+
+.preferences-form__checkbox input {
+  margin: 0;
+}
+
+.preferences-form__time-range {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.preferences-form__time-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.preferences-form__time-label {
+  color: $binx-text-muted;
+  font-size: $binx-font-size-xs;
+  font-weight: 600;
+}
+
+.preferences-form__footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.preferences-form__saved-message {
+  color: $binx-success;
+  font-size: $binx-font-size-sm;
+  font-weight: 600;
+}
+
+@media (max-width: 767.98px) {
+  .preferences-card {
+    padding: 1rem 0.9rem;
+  }
+
+  .preferences-form__input {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,110 @@
+@use '../../../../../styles/tokens' as *;
+
+.summary-page {
+  width: 100%;
+}
+
+.summary-page__header {
+  margin-bottom: 1.2rem;
+}
+
+.summary-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1120px;
+  margin-bottom: 1rem;
+}
+
+.summary-card {
+  min-height: 120px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  background-color: $binx-surface;
+}
+
+.summary-card__label {
+  color: $binx-text-muted;
+  font-size: $binx-font-size-sm;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.summary-card__value {
+  font-size: 2.15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.summary-card--success .summary-card__value {
+  color: $binx-success;
+}
+
+.summary-card--warning .summary-card__value {
+  color: $binx-warning;
+}
+
+.summary-card--primary .summary-card__value {
+  color: $binx-primary;
+}
+
+.summary-chart {
+  max-width: 1120px;
+  padding: 1rem 1rem 0.85rem;
+  background-color: $binx-surface;
+}
+
+.summary-chart__header {
+  margin-bottom: 0.75rem;
+}
+
+.summary-chart__title {
+  margin: 0;
+  color: $binx-text;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.summary-chart__body {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.summary-chart__svg {
+  display: block;
+  width: 100%;
+  min-width: 760px;
+  height: auto;
+}
+
+.summary-chart__axis {
+  stroke: $binx-border;
+  stroke-width: 1;
+}
+
+.summary-chart__line {
+  fill: none;
+  stroke: $binx-primary;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.summary-chart__dot {
+  fill: $binx-primary;
+}
+
+.summary-chart__label {
+  fill: $binx-text-muted;
+  font-size: 11px;
+}
+
+@media (max-width: 991.98px) {
+  .summary-metrics {
+    grid-template-columns: 1fr;
+  }
+}

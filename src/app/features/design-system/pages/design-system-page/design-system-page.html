@@ -1,1 +1,101 @@
-<p>design-system-page works!</p>
+<section class="design-system-page">
+  <header class="design-system-page__header">
+    <h1 class="page-title">Design System</h1>
+  </header>
+
+  <section class="design-section binx-card">
+    <h2 class="design-section__title">Botones</h2>
+
+    <div class="design-section__row">
+      <button type="button" class="binx-btn binx-btn-primary">
+        Botón Primario
+      </button>
+
+      <button type="button" class="binx-btn binx-btn-secondary">
+        Botón Secundario
+      </button>
+
+      <button type="button" class="binx-btn binx-btn-dark">
+        Botón Oscuro
+      </button>
+
+      <button type="button" class="binx-btn binx-btn-outline">
+        Botón Outline
+      </button>
+    </div>
+  </section>
+
+  <section class="design-section binx-card">
+    <h2 class="design-section__title">Inputs</h2>
+
+    <div class="design-section__column">
+      <div class="design-field">
+        <label class="binx-label" for="sampleText">Input de texto</label>
+        <input
+          id="sampleText"
+          name="sampleText"
+          type="text"
+          class="binx-input design-input"
+          [(ngModel)]="sampleText"
+          placeholder="Escribe algo"
+        />
+      </div>
+
+      <div class="design-field">
+        <label class="binx-label" for="sampleTime">Campo de hora</label>
+        <input
+          id="sampleTime"
+          name="sampleTime"
+          type="time"
+          class="binx-input design-input"
+          [(ngModel)]="sampleTime"
+          aria-label="Campo de hora"
+          title="Campo de hora"
+        />
+      </div>
+
+      <div class="design-field">
+        <label class="design-checkbox" for="sampleCheckbox">
+          <input
+            id="sampleCheckbox"
+            name="sampleCheckbox"
+            type="checkbox"
+            [(ngModel)]="sampleCheckbox"
+          />
+          <span>Checkbox base</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="design-section binx-card">
+    <h2 class="design-section__title">Estados</h2>
+
+    <div class="design-section__row">
+      <span class="binx-chip binx-chip--primary">Activo</span>
+      <span class="binx-chip binx-chip--success">Atendida</span>
+      <span class="binx-chip binx-chip--warning">Pendiente</span>
+      <span class="binx-chip binx-chip--danger">Error</span>
+    </div>
+  </section>
+
+  <section class="design-section binx-card">
+    <h2 class="design-section__title">Tarjetas</h2>
+
+    <div class="design-cards">
+      <article class="design-demo-card binx-card">
+        <h3 class="design-demo-card__title">Card básica</h3>
+        <p class="design-demo-card__text">
+          Superficie base para vistas internas de BINX.
+        </p>
+      </article>
+
+      <article class="design-demo-card binx-panel">
+        <h3 class="design-demo-card__title">Panel base</h3>
+        <p class="design-demo-card__text">
+          Variante liviana para formularios, estados y bloques informativos.
+        </p>
+      </article>
+    </div>
+  </section>
+</section>

@@ -1,1 +1,74 @@
-<p>summary-page works!</p>
+<section class="summary-page">
+  <header class="summary-page__header">
+    <h1 class="page-title">Resumen</h1>
+  </header>
+
+  <section class="summary-metrics">
+    @for (metric of metrics; track metric.label) {
+      <article class="summary-card binx-card" [ngClass]="getToneClass(metric.tone)">
+        <div class="summary-card__label">{{ metric.label }}</div>
+        <div class="summary-card__value">{{ metric.value }}</div>
+      </article>
+    }
+  </section>
+
+  <section class="summary-chart binx-card">
+    <div class="summary-chart__header">
+      <h2 class="summary-chart__title">Tendencia semanal</h2>
+    </div>
+
+    <div class="summary-chart__body">
+      <svg
+        class="summary-chart__svg"
+        [attr.viewBox]="'0 0 ' + svgWidth + ' ' + svgHeight"
+        [attr.width]="svgWidth"
+        [attr.height]="svgHeight"
+        role="img"
+        aria-label="Gráfico de tendencia semanal"
+      >
+        <defs>
+          <linearGradient id="summaryAreaFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#88c3f4" stop-opacity="0.35"></stop>
+            <stop offset="100%" stop-color="#88c3f4" stop-opacity="0.04"></stop>
+          </linearGradient>
+        </defs>
+
+        <line
+          x1="44"
+          y1="224"
+          x2="816"
+          y2="224"
+          class="summary-chart__axis"
+        ></line>
+
+        <polygon
+          [attr.points]="areaPoints"
+          fill="url(#summaryAreaFill)"
+        ></polygon>
+
+        <polyline
+          [attr.points]="polylinePoints"
+          class="summary-chart__line"
+        ></polyline>
+
+        @for (point of points; track point.label; let i = $index) {
+          <circle
+            [attr.cx]="getPointX(i)"
+            [attr.cy]="getPointY(point.value)"
+            r="5"
+            class="summary-chart__dot"
+          ></circle>
+
+          <text
+            [attr.x]="getPointX(i)"
+            [attr.y]="svgHeight - 12"
+            text-anchor="middle"
+            class="summary-chart__label"
+          >
+            {{ point.label }}
+          </text>
+        }
+      </svg>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,92 @@
+@use '../../../../../styles/tokens' as *;
+
+.design-system-page {
+  width: 100%;
+}
+
+.design-system-page__header {
+  margin-bottom: 1.2rem;
+}
+
+.design-section {
+  max-width: 1120px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: $binx-surface;
+}
+
+.design-section__title {
+  margin: 0 0 0.9rem;
+  color: $binx-text;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.design-section__row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.design-section__column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 340px;
+}
+
+.design-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.design-input {
+  max-width: 260px;
+}
+
+.design-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $binx-text-body;
+  font-size: $binx-font-size-sm;
+}
+
+.design-checkbox input {
+  margin: 0;
+}
+
+.design-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.design-demo-card {
+  padding: 1rem;
+  min-height: 120px;
+}
+
+.design-demo-card__title {
+  margin: 0 0 0.35rem;
+  color: $binx-text;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.design-demo-card__text {
+  margin: 0;
+  color: $binx-text-muted;
+  font-size: $binx-font-size-sm;
+  line-height: 1.5;
+}
+
+@media (max-width: 767.98px) {
+  .design-cards {
+    grid-template-columns: 1fr;
+  }
+}

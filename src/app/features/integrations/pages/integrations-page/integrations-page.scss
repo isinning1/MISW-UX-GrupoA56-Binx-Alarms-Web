@@ -1,0 +1,95 @@
+@use '../../../../../styles/tokens' as *;
+
+.integrations-page {
+  width: 100%;
+}
+
+.integrations-page__header {
+  margin-bottom: 1.2rem;
+}
+
+.integrations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 1120px;
+}
+
+.integration-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: $binx-surface;
+}
+
+.integration-row__main {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.integration-row__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: $binx-font-size-md;
+  font-weight: 700;
+  color: #fff;
+  flex: 0 0 auto;
+}
+
+.integration-row__logo--google {
+  background: #4285f4;
+}
+
+.integration-row__logo--microsoft {
+  background: #00a4ef;
+}
+
+.integration-row__logo--other {
+  background: $binx-primary;
+}
+
+.integration-row__info {
+  min-width: 0;
+}
+
+.integration-row__title {
+  margin: 0 0 0.15rem;
+  color: $binx-text;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.integration-row__status {
+  margin: 0;
+  color: $binx-text-muted;
+  font-size: $binx-font-size-sm;
+  line-height: 1.3;
+}
+
+.integration-row__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@media (max-width: 991.98px) {
+  .integration-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .integration-row__actions {
+    justify-content: flex-start;
+  }
+}

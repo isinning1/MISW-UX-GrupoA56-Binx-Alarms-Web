@@ -1,1 +1,16 @@
-<p>binx-modal-info works!</p>
+<div class="binx-modal">
+  <div class="binx-modal__body">
+    <h2 class="binx-modal__title">{{ title }}</h2>
+    <p class="binx-modal__message">{{ message }}</p>
+  </div>
+
+  <div class="binx-modal__footer">
+    <button
+      type="button"
+      class="binx-btn binx-btn-primary"
+      (click)="activeModal.close()"
+    >
+      {{ buttonText }}
+    </button>
+  </div>
+</div>

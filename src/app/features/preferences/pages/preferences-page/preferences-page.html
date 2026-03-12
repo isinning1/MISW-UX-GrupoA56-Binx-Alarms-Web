@@ -1,1 +1,105 @@
-<p>preferences-page works!</p>
+<section class="preferences-page">
+  <header class="preferences-page__header">
+    <h1 class="page-title">Preferencias</h1>
+  </header>
+
+  <section class="preferences-card binx-card" aria-labelledby="preferences-title">
+    <form class="preferences-form" (ngSubmit)="onSave()">
+      <div class="preferences-form__group">
+        <label
+          class="preferences-form__label"
+          for="criticalSnoozeLimit"
+        >
+          Límite para posponer alarma crítica
+        </label>
+
+        <input
+          id="criticalSnoozeLimit"
+          name="criticalSnoozeLimit"
+          type="number"
+          min="0"
+          class="binx-input preferences-form__input"
+          [(ngModel)]="preferences.criticalSnoozeLimit"
+          aria-label="Límite para posponer alarma crítica"
+          title="Límite para posponer alarma crítica"
+        />
+      </div>
+
+      <div class="preferences-form__group preferences-form__group--checkbox">
+        <label
+          class="preferences-form__checkbox"
+          for="discreteMode"
+        >
+          <input
+            id="discreteMode"
+            name="discreteMode"
+            type="checkbox"
+            [(ngModel)]="preferences.discreteMode"
+            aria-label="Modo discreto"
+            title="Modo discreto"
+          />
+          <span>Modo discreto</span>
+        </label>
+      </div>
+
+      <div class="preferences-form__group">
+        <span class="preferences-form__label">Horario laboral</span>
+
+        <div class="preferences-form__time-range">
+          <div class="preferences-form__time-field">
+            <label
+              class="preferences-form__time-label"
+              for="workdayStart"
+            >
+              Inicio
+            </label>
+
+            <input
+              id="workdayStart"
+              name="workdayStart"
+              type="time"
+              class="binx-input preferences-form__input"
+              [(ngModel)]="preferences.workdayStart"
+              aria-label="Hora de inicio del horario laboral"
+              title="Hora de inicio del horario laboral"
+            />
+          </div>
+
+          <div class="preferences-form__time-field">
+            <label
+              class="preferences-form__time-label"
+              for="workdayEnd"
+            >
+              Fin
+            </label>
+
+            <input
+              id="workdayEnd"
+              name="workdayEnd"
+              type="time"
+              class="binx-input preferences-form__input"
+              [(ngModel)]="preferences.workdayEnd"
+              aria-label="Hora de fin del horario laboral"
+              title="Hora de fin del horario laboral"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="preferences-form__footer">
+        <button
+          type="submit"
+          class="binx-btn binx-btn-primary"
+        >
+          Guardar
+        </button>
+
+        @if (savedMessage) {
+          <p class="preferences-form__saved-message">
+            {{ savedMessage }}
+          </p>
+        }
+      </div>
+    </form>
+  </section>
+</section>
