@@ -1,1 +1,24 @@
-<p>sidebar works!</p>
+<aside class="sidebar" aria-label="Navegación principal">
+  <div class="sidebar__brand">
+    <span class="sidebar__brand-text">BINX</span>
+  </div>
+
+  <nav class="sidebar__nav">
+    @for (item of items; track item.route) {
+      <a
+        class="sidebar__item"
+        [routerLink]="item.route"
+        routerLinkActive="sidebar__item--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <span class="sidebar__icon-wrapper" aria-hidden="true">
+          <i class="bi sidebar__icon" [ngClass]="item.icon"></i>
+        </span>
+
+        <span class="sidebar__label">
+          {{ item.label }}
+        </span>
+      </a>
+    }
+  </nav>
+</aside>

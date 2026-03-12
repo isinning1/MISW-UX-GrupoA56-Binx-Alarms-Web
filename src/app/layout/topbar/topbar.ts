@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-topbar',
-  imports: [],
+  standalone: true,
   templateUrl: './topbar.html',
   styleUrl: './topbar.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Topbar {}
+export class Topbar {
+  protected readonly userName = 'Usuario';
+}

@@ -1,0 +1,103 @@
+@use '../../../../../styles/tokens' as *;
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background-color: $binx-bg;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem 1.5rem 1.75rem;
+  background-color: $binx-surface;
+  border: 1px solid $binx-primary-border;
+  border-radius: $binx-radius-md;
+  box-shadow: $binx-shadow-md;
+}
+
+.login-card__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login-card__circle {
+  width: 120px;
+  height: 120px;
+  border: 1px solid $binx-primary-border;
+  border-radius: 50%;
+  margin-bottom: -78px;
+}
+
+.login-card__brand {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.75rem;
+  color: $binx-text;
+  font-size: $binx-font-size-sm;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.login-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  color: $binx-primary;
+  font-size: 2rem;
+}
+
+.login-card__title {
+  margin: 0 0 0.5rem;
+  color: $binx-text;
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.login-card__subtitle {
+  margin: 0 0 1.5rem;
+  color: $binx-text-muted;
+  font-size: $binx-font-size-sm;
+  line-height: 1.5;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.login-form__label {
+  color: $binx-text;
+  font-size: $binx-font-size-sm;
+  font-weight: 600;
+}
+
+.login-form__remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: $binx-text-body;
+  font-size: $binx-font-size-sm;
+}
+
+.login-form__remember input {
+  margin: 0;
+}

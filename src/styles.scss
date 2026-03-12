@@ -1,7 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/tokens' as *;
+@use './styles/reset';
+@use './styles/utilities';
 
-/* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-color: $binx-bg;
+}
+
+.router-link-active {
+  text-decoration: none;
+}

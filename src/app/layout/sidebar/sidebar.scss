@@ -1,0 +1,83 @@
+@use '../../../styles/tokens' as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $binx-surface;
+}
+
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $binx-topbar-height;
+  border-bottom: 1px solid $binx-divider;
+  padding: 0.15rem 0.35rem;
+}
+
+.sidebar__brand-text {
+  color: $binx-text;
+  font-size: $binx-font-size-xs;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.4rem;
+}
+
+.sidebar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 64px;
+  padding: 0.45rem 0.35rem;
+  color: $binx-text;
+  text-align: center;
+  transition:
+    background-color $binx-transition-fast,
+    color $binx-transition-fast;
+}
+
+.sidebar__item:hover {
+  background-color: rgba(10, 63, 134, 0.06);
+}
+
+.sidebar__item--active {
+  background-color: $binx-primary-soft;
+}
+
+.sidebar__icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar__icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.sidebar__label {
+  font-size: $binx-font-size-xs;
+  font-weight: 500;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar__item {
+    min-height: 58px;
+    padding-inline: 0.25rem;
+  }
+
+  .sidebar__label {
+    font-size: 0.625rem;
+  }
+}

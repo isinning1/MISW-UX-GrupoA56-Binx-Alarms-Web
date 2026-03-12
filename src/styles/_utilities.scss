@@ -1,0 +1,286 @@
+@use './tokens' as *;
+
+.page-title {
+  margin: 0 0 1.5rem;
+  color: $binx-text;
+  font-size: $binx-font-size-2xl;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: $binx-text-muted;
+  font-size: $binx-font-size-md;
+  line-height: 1.4;
+}
+
+.section-title {
+  margin: 0 0 1rem;
+  color: $binx-text;
+  font-size: $binx-font-size-lg;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.binx-card {
+  background-color: $binx-surface;
+  border: 1px solid $binx-primary-border;
+  border-radius: $binx-radius-sm;
+  box-shadow: $binx-shadow-sm;
+}
+
+.binx-card--flat {
+  box-shadow: none;
+}
+
+.binx-card--elevated {
+  box-shadow: $binx-shadow-md;
+}
+
+.binx-panel {
+  padding: 1rem;
+  background-color: $binx-surface;
+  border: 1px solid $binx-border-soft;
+  border-radius: $binx-radius-md;
+}
+
+.binx-divider {
+  width: 100%;
+  height: 1px;
+  background-color: $binx-divider;
+}
+
+.binx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 36px;
+  padding: 0.4rem 1rem;
+  border: 1px solid transparent;
+  border-radius: $binx-radius-xs;
+  font-size: $binx-font-size-sm;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  transition:
+    background-color $binx-transition-base,
+    border-color $binx-transition-base,
+    color $binx-transition-base,
+    box-shadow $binx-transition-base,
+    opacity $binx-transition-base;
+}
+
+.binx-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.binx-btn-primary {
+  background-color: $binx-primary-strong;
+  border-color: $binx-primary-strong;
+  color: $binx-text-inverse;
+}
+
+.binx-btn-primary:hover:not(:disabled) {
+  background-color: $binx-primary;
+  border-color: $binx-primary;
+}
+
+.binx-btn-secondary {
+  background-color: #bfbfbf;
+  border-color: #bfbfbf;
+  color: $binx-text-body;
+}
+
+.binx-btn-secondary:hover:not(:disabled) {
+  background-color: #adadad;
+  border-color: #adadad;
+}
+
+.binx-btn-dark {
+  background-color: $binx-primary;
+  border-color: $binx-primary;
+  color: $binx-text-inverse;
+}
+
+.binx-btn-dark:hover:not(:disabled) {
+  background-color: #072f65;
+  border-color: #072f65;
+}
+
+.binx-btn-outline {
+  background-color: transparent;
+  border-color: $binx-primary-strong;
+  color: $binx-primary-strong;
+}
+
+.binx-btn-outline:hover:not(:disabled) {
+  background-color: rgba(11, 94, 215, 0.08);
+}
+
+.binx-btn-block {
+  width: 100%;
+}
+
+.binx-input {
+  width: 100%;
+  height: 34px;
+  padding: 0 0.65rem;
+  background-color: $binx-surface;
+  border: 1px solid $binx-border;
+  border-radius: 3px;
+  color: $binx-text-body;
+  font-size: $binx-font-size-sm;
+  line-height: 1.2;
+  transition:
+    border-color $binx-transition-fast,
+    box-shadow $binx-transition-fast,
+    background-color $binx-transition-fast;
+}
+
+.binx-input::placeholder {
+  color: #a1a1a1;
+}
+
+.binx-input:hover {
+  border-color: #c5c5c5;
+}
+
+.binx-input:focus {
+  border-color: $binx-primary-strong;
+  box-shadow: 0 0 0 3px rgba(11, 94, 215, 0.12);
+  outline: none;
+}
+
+.binx-input:disabled {
+  background-color: #ececec;
+  color: $binx-text-muted;
+  cursor: not-allowed;
+}
+
+.binx-label {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  color: $binx-text;
+  font-size: $binx-font-size-sm;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.binx-helper-text {
+  margin-top: 0.3rem;
+  color: $binx-text-muted;
+  font-size: $binx-font-size-xs;
+  line-height: 1.4;
+}
+
+.binx-error-text {
+  margin-top: 0.3rem;
+  color: $binx-danger;
+  font-size: $binx-font-size-xs;
+  line-height: 1.4;
+}
+
+.binx-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: $binx-font-size-xs;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.binx-status--pending {
+  color: $binx-warning;
+}
+
+.binx-status--success {
+  color: $binx-success;
+}
+
+.binx-status--danger {
+  color: $binx-danger;
+}
+
+.binx-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: $binx-font-size-xs;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.binx-chip--primary {
+  background-color: rgba(11, 94, 215, 0.1);
+  color: $binx-primary-strong;
+}
+
+.binx-chip--success {
+  background-color: rgba(16, 177, 60, 0.12);
+  color: $binx-success;
+}
+
+.binx-chip--warning {
+  background-color: rgba(242, 140, 0, 0.14);
+  color: $binx-warning;
+}
+
+.binx-chip--danger {
+  background-color: rgba(255, 31, 53, 0.12);
+  color: $binx-danger;
+}
+
+.binx-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: $binx-radius-xs;
+  background-color: transparent;
+  color: $binx-primary;
+  transition:
+    background-color $binx-transition-fast,
+    color $binx-transition-fast,
+    border-color $binx-transition-fast;
+}
+
+.binx-icon-button:hover:not(:disabled) {
+  background-color: rgba(10, 63, 134, 0.08);
+}
+
+.binx-icon-button--danger {
+  color: $binx-danger;
+}
+
+.binx-icon-button--danger:hover:not(:disabled) {
+  background-color: rgba(255, 31, 53, 0.08);
+}
+
+.binx-surface {
+  background-color: $binx-surface;
+}
+
+.binx-text-primary {
+  color: $binx-text;
+}
+
+.binx-text-muted {
+  color: $binx-text-muted;
+}
+
+.binx-shadow-sm {
+  box-shadow: $binx-shadow-sm;
+}
+
+.binx-shadow-md {
+  box-shadow: $binx-shadow-md;
+}

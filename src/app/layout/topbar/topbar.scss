@@ -1,0 +1,72 @@
+@use '../../../styles/tokens' as *;
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: $binx-topbar-height;
+  padding: 0 0.35rem 0 0.5rem;
+  border-bottom: 1px solid $binx-divider;
+  background-color: $binx-surface;
+}
+
+.topbar__spacer {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.topbar__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 0 0 auto;
+}
+
+.topbar__greeting {
+  color: $binx-text;
+  font-size: $binx-font-size-xs;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.topbar__profile-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid $binx-text;
+  border-radius: 0;
+  background-color: transparent;
+  color: $binx-text;
+  transition:
+    background-color $binx-transition-fast,
+    color $binx-transition-fast,
+    border-color $binx-transition-fast;
+}
+
+.topbar__profile-button:hover {
+  background-color: rgba(10, 63, 134, 0.08);
+}
+
+.topbar__profile-button:focus-visible {
+  outline: 2px solid $binx-primary-strong;
+  outline-offset: 2px;
+}
+
+.topbar__profile-icon {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+@media (max-width: 767.98px) {
+  .topbar {
+    padding-inline: 0.5rem;
+  }
+
+  .topbar__greeting {
+    font-size: 0.625rem;
+  }
+}

@@ -1,1 +1,16 @@
-<p>topbar works!</p>
+<header class="topbar" aria-label="Barra superior">
+  <div class="topbar__spacer"></div>
+
+  <div class="topbar__actions">
+    <span class="topbar__greeting">Hola, {{ userName }}</span>
+
+    <button
+      class="topbar__profile-button"
+      type="button"
+      aria-label="Abrir perfil de usuario"
+      title="Perfil"
+    >
+      <i class="bi bi-person-fill topbar__profile-icon" aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
