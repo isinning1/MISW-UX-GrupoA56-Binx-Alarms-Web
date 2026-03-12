@@ -1,1 +1,75 @@
-<p>alarms-page works!</p>
+<section class="alarms-page">
+  <header class="alarms-page__header">
+    <h1 class="page-title">Alarmas</h1>
+  </header>
+
+  <div class="alarms-list">
+    @for (alarm of alarms; track alarm.id) {
+      <article class="alarm-row binx-card">
+        <div class="alarm-row__status-col">
+          <span
+            class="alarm-row__status-icon"
+            [ngClass]="{
+              'alarm-row__status-icon--pending': alarm.status === 'pendiente',
+              'alarm-row__status-icon--done': alarm.status === 'atendida'
+            }"
+            aria-hidden="true"
+          >
+            <i
+              class="bi"
+              [ngClass]="
+                alarm.status === 'pendiente'
+                  ? 'bi-exclamation-triangle-fill'
+                  : 'bi-check-circle-fill'
+              "
+            ></i>
+          </span>
+        </div>
+
+        <div class="alarm-row__content">
+          <div class="alarm-row__main">
+            <h2 class="alarm-row__title">{{ alarm.title }}</h2>
+            <p class="alarm-row__category">{{ alarm.category }}</p>
+          </div>
+
+          <div class="alarm-row__meta">
+            <span
+              class="alarm-row__badge"
+              [ngClass]="{
+                'alarm-row__badge--pending': alarm.status === 'pendiente',
+                'alarm-row__badge--done': alarm.status === 'atendida'
+              }"
+            >
+              {{ alarm.status === 'pendiente' ? 'Pendiente' : 'Atendida' }}
+            </span>
+
+            <span class="alarm-row__date">{{ alarm.date }}</span>
+            <span class="alarm-row__time">{{ alarm.time }}</span>
+          </div>
+        </div>
+
+        <div class="alarm-row__actions">
+          <button
+            type="button"
+            class="alarm-row__action alarm-row__action--edit"
+            aria-label="Editar alarma"
+            title="Editar"
+            (click)="onEdit(alarm)"
+          >
+            <i class="bi bi-pencil-fill"></i>
+          </button>
+
+          <button
+            type="button"
+            class="alarm-row__action alarm-row__action--delete"
+            aria-label="Eliminar alarma"
+            title="Eliminar"
+            (click)="onDelete(alarm.id)"
+          >
+            <i class="bi bi-trash-fill"></i>
+          </button>
+        </div>
+      </article>
+    }
+  </div>
+</section>
