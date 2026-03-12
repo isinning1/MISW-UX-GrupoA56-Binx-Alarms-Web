@@ -1,15 +1,16 @@
 export interface SummaryMetric {
   label: string;
   value: number;
-  tone: 'success' | 'warning' | 'primary';
+  tone: 'success' | 'warning' | 'danger';
 }
 
-export interface SummaryPoint {
+export interface SummarySeriesPoint {
   label: string;
-  value: number;
+  attended: number;
+  postponed: number;
 }
 
 export interface SummaryData {
   metrics: SummaryMetric[];
-  chartPoints: SummaryPoint[];
+  chartPoints: SummarySeriesPoint[];
 }

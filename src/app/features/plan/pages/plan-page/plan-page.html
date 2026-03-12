@@ -6,22 +6,20 @@
   <div class="plan-list">
     @for (item of items; track item.id) {
       <article class="plan-row binx-card">
-        <div class="plan-row__left">
-          <div class="plan-row__date">{{ item.date }}</div>
-          <div class="plan-row__time">{{ item.time }}</div>
-        </div>
+        <div class="plan-row__date">{{ item.date }}</div>
 
-        <div class="plan-row__center">
-          <h2 class="plan-row__title">{{ item.title }}</h2>
-          <p class="plan-row__category">{{ item.category }}</p>
-        </div>
+        <div class="plan-row__time">{{ item.time }}</div>
 
-        <div class="plan-row__right">
+        <div class="plan-row__title">{{ item.title }}</div>
+
+        <div class="plan-row__category">{{ item.category }}</div>
+
+        <div class="plan-row__status">
           <span
-            class="plan-row__status"
+            class="plan-row__status-icon"
             [ngClass]="{
-              'plan-row__status--pending': item.status === 'pendiente',
-              'plan-row__status--done': item.status === 'atendida'
+              'plan-row__status-icon--pending': item.status === 'pendiente',
+              'plan-row__status-icon--done': item.status === 'atendida'
             }"
             aria-hidden="true"
           >

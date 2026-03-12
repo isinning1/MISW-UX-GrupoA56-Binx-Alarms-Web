@@ -41,15 +41,4 @@ export class IntegrationsPage {
         return 'integration-row__logo--other';
     }
   }
-
-  protected getProviderLetter(provider: IntegrationItem['provider']): string {
-    switch (provider) {
-      case 'google':
-        return 'G';
-      case 'microsoft':
-        return 'M';
-      default:
-        return 'O';
-    }
-  }
 }

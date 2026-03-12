@@ -5,16 +5,21 @@
 
   <section class="summary-metrics">
     @for (metric of metrics; track metric.label) {
-      <article class="summary-card binx-card" [ngClass]="getToneClass(metric.tone)">
-        <div class="summary-card__label">{{ metric.label }}</div>
+      <article
+        class="summary-card binx-card"
+        [ngClass]="getToneClass(metric.tone)"
+      >
         <div class="summary-card__value">{{ metric.value }}</div>
+        <div class="summary-card__label">{{ metric.label }}</div>
       </article>
     }
   </section>
 
   <section class="summary-chart binx-card">
     <div class="summary-chart__header">
-      <h2 class="summary-chart__title">Tendencia semanal</h2>
+      <h2 class="summary-chart__title">
+        Alarmas atendidas versus pospuestas
+      </h2>
     </div>
 
     <div class="summary-chart__body">
@@ -24,44 +29,56 @@
         [attr.width]="svgWidth"
         [attr.height]="svgHeight"
         role="img"
-        aria-label="Gráfico de tendencia semanal"
+        aria-label="Gráfico de alarmas atendidas versus pospuestas"
       >
         <defs>
           <linearGradient id="summaryAreaFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#88c3f4" stop-opacity="0.35"></stop>
-            <stop offset="100%" stop-color="#88c3f4" stop-opacity="0.04"></stop>
+            <stop offset="0%" stop-color="#0a4d98" stop-opacity="0.15"></stop>
+            <stop offset="100%" stop-color="#0a4d98" stop-opacity="0.03"></stop>
           </linearGradient>
         </defs>
 
         <line
           x1="44"
-          y1="224"
+          y1="286"
           x2="816"
-          y2="224"
+          y2="286"
           class="summary-chart__axis"
         ></line>
 
         <polygon
-          [attr.points]="areaPoints"
+          [attr.points]="attendedAreaPoints"
           fill="url(#summaryAreaFill)"
         ></polygon>
 
         <polyline
-          [attr.points]="polylinePoints"
-          class="summary-chart__line"
+          [attr.points]="attendedPolylinePoints"
+          class="summary-chart__line summary-chart__line--primary"
+        ></polyline>
+
+        <polyline
+          [attr.points]="postponedPolylinePoints"
+          class="summary-chart__line summary-chart__line--secondary"
         ></polyline>
 
         @for (point of points; track point.label; let i = $index) {
           <circle
             [attr.cx]="getPointX(i)"
-            [attr.cy]="getPointY(point.value)"
-            r="5"
-            class="summary-chart__dot"
+            [attr.cy]="getPointY(point.attended)"
+            r="4.5"
+            class="summary-chart__dot summary-chart__dot--primary"
+          ></circle>
+
+          <circle
+            [attr.cx]="getPointX(i)"
+            [attr.cy]="getPointY(point.postponed)"
+            r="4"
+            class="summary-chart__dot summary-chart__dot--secondary"
           ></circle>
 
           <text
             [attr.x]="getPointX(i)"
-            [attr.y]="svgHeight - 12"
+            [attr.y]="svgHeight - 10"
             text-anchor="middle"
             class="summary-chart__label"
           >

@@ -12,90 +12,98 @@
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  max-width: 1040px;
+  max-width: 1120px;
 }
 
 .plan-row {
   display: grid;
-  grid-template-columns: 140px 1fr 48px;
+  grid-template-columns: 110px 120px minmax(220px, 1fr) 110px 44px;
   align-items: center;
-  min-height: 88px;
-  padding: 0.85rem 1rem;
+  column-gap: 1rem;
+  min-height: 72px;
+  padding: 0.9rem 1rem;
   background-color: $binx-surface;
 }
 
-.plan-row__left {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding-right: 1rem;
-}
-
 .plan-row__date {
-  color: $binx-text;
-  font-size: $binx-font-size-md;
-  font-weight: 600;
+  color: $binx-text-body;
+  font-size: 0.95rem;
+  font-weight: 400;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .plan-row__time {
-  color: $binx-text-muted;
-  font-size: $binx-font-size-sm;
-  line-height: 1.3;
-}
-
-.plan-row__center {
-  min-width: 0;
+  color: $binx-text-body;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .plan-row__title {
-  margin: 0 0 0.2rem;
-  color: $binx-text;
-  font-size: 1.1rem;
-  font-weight: 500;
+  color: $binx-text-body;
+  font-size: 0.95rem;
+  font-weight: 400;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .plan-row__category {
-  margin: 0;
-  color: $binx-text-muted;
-  font-size: $binx-font-size-sm;
-  line-height: 1.3;
-}
-
-.plan-row__right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: $binx-text-body;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .plan-row__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plan-row__status-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   line-height: 1;
 }
 
-.plan-row__status--pending {
+.plan-row__status-icon--pending {
   color: $binx-warning;
 }
 
-.plan-row__status--done {
+.plan-row__status-icon--done {
   color: $binx-success;
+}
+
+@media (max-width: 991.98px) {
+  .plan-row {
+    grid-template-columns: 95px 105px minmax(180px, 1fr) 90px 36px;
+    column-gap: 0.8rem;
+    padding-inline: 0.85rem;
+  }
+
+  .plan-row__date,
+  .plan-row__time,
+  .plan-row__title,
+  .plan-row__category {
+    font-size: 0.88rem;
+  }
 }
 
 @media (max-width: 767.98px) {
   .plan-row {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    row-gap: 0.45rem;
+    align-items: start;
   }
 
-  .plan-row__left {
-    padding-right: 0;
-  }
-
-  .plan-row__right {
+  .plan-row__status {
     justify-content: flex-start;
   }
 }

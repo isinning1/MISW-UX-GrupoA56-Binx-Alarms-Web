@@ -1,17 +1,24 @@
 <section class="login-page">
   <div class="login-card">
-    <div class="login-card__hero">
+    <div class="login-card__hero" aria-hidden="true">
       <div class="login-card__circle"></div>
 
-      <div class="login-card__brand">BINX</div>
-
-      <div class="login-card__icon" aria-hidden="true">
-        <i class="bi bi-bell-fill"></i>
+      <div class="login-card__brand" aria-label="BINX">
+        <span>B</span>
+        <span>I</span>
+        <span>N</span>
+        <span>X</span>
       </div>
 
+      <div class="login-card__icon">
+        <i class="bi bi-bell"></i>
+      </div>
+    </div>
+
+    <div class="login-card__heading">
       <h1 class="login-card__title">Inicio de Sesión</h1>
       <p class="login-card__subtitle">
-        Controla tus alarmas y organiza tu rutina diaria.
+        Ingresa tu usuario y contraseña aquí para empezar
       </p>
     </div>
 
@@ -26,6 +33,8 @@
           [(ngModel)]="username"
           placeholder="Ingresa tu usuario"
           autocomplete="username"
+          aria-label="Usuario"
+          title="Usuario"
         />
       </div>
 
@@ -37,22 +46,30 @@
           type="password"
           class="binx-input"
           [(ngModel)]="password"
-          placeholder="Ingresa tu contraseña"
+          placeholder="Contraseña"
           autocomplete="current-password"
+          aria-label="Contraseña"
+          title="Contraseña"
         />
       </div>
 
-      <label class="login-form__remember">
+      <label class="login-form__remember" for="rememberMe">
         <input
+          id="rememberMe"
           type="checkbox"
           name="rememberMe"
           [(ngModel)]="rememberMe"
+          aria-label="Recordarme"
+          title="Recordarme"
         />
         <span>Recordarme</span>
       </label>
 
-      <button type="submit" class="binx-btn binx-btn-primary binx-btn-block">
-        Ingresar
+      <button
+        type="submit"
+        class="binx-btn binx-btn-primary binx-btn-block"
+      >
+        Iniciar Sesión
       </button>
     </form>
   </div>

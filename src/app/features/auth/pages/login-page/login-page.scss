@@ -11,93 +11,188 @@
 
 .login-card {
   width: 100%;
-  max-width: 420px;
-  padding: 2rem 1.5rem 1.75rem;
-  background-color: $binx-surface;
-  border: 1px solid $binx-primary-border;
-  border-radius: $binx-radius-md;
-  box-shadow: $binx-shadow-md;
+  max-width: 360px;
+  padding: 0.8rem 1.1rem 1.45rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .login-card__hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 158px;
+  margin: 0 auto 0.7rem;
 }
 
 .login-card__circle {
-  width: 120px;
-  height: 120px;
-  border: 1px solid $binx-primary-border;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 156px;
+  height: 156px;
+  border: 1px solid rgba(136, 195, 244, 0.32);
   border-radius: 50%;
-  margin-bottom: -78px;
+  transform: translateX(-50%);
 }
 
 .login-card__brand {
-  position: relative;
+  position: absolute;
+  top: 16px;
+  left: 50%;
   z-index: 1;
-  margin-bottom: 0.75rem;
-  color: $binx-text;
-  font-size: $binx-font-size-sm;
-  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.38rem;
+  transform: translateX(-50%);
+  color: #1e88e5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3.55rem;
+  font-weight: 300;
+  line-height: 1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.login-card__brand span {
+  display: inline-block;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.login-card__brand span:nth-child(1) {
+  transform: rotate(-7deg) translateY(2px);
+}
+
+.login-card__brand span:nth-child(2) {
+  transform: rotate(-1deg) translateY(0);
+}
+
+.login-card__brand span:nth-child(3) {
+  transform: rotate(1deg) translateY(1px);
+}
+
+.login-card__brand span:nth-child(4) {
+  transform: rotate(6deg) translateY(2px);
+  margin-left: 0.08rem;
 }
 
 .login-card__icon {
+  position: absolute;
+  top: 88px;
+  left: 50%;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 74px;
-  height: 74px;
-  border-radius: 50%;
+  transform: translateX(-50%);
+  color: #2b2b2b;
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.login-card__heading {
+  text-align: center;
   margin-bottom: 1rem;
-  color: $binx-primary;
-  font-size: 2rem;
 }
 
 .login-card__title {
-  margin: 0 0 0.5rem;
-  color: $binx-text;
-  font-size: 1.75rem;
-  font-weight: 500;
-  line-height: 1.1;
+  margin: 0 0 0.35rem;
+  color: #2f2f2f;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .login-card__subtitle {
-  margin: 0 0 1.5rem;
-  color: $binx-text-muted;
-  font-size: $binx-font-size-sm;
-  line-height: 1.5;
+  margin: 0;
+  color: #aaaaaa;
+  font-size: 0.74rem;
+  line-height: 1.45;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
+  max-width: 270px;
+  margin: 0 auto;
 }
 
 .login-form__field {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.28rem;
 }
 
 .login-form__label {
-  color: $binx-text;
-  font-size: $binx-font-size-sm;
-  font-weight: 600;
+  color: #4a4a4a;
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .login-form__remember {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  color: $binx-text-body;
-  font-size: $binx-font-size-sm;
+  gap: 0.38rem;
+  color: #6f6f6f;
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .login-form__remember input {
   margin: 0;
+}
+
+.binx-input {
+  height: 30px;
+  padding-inline: 0.55rem;
+  font-size: 0.7rem;
+  background-color: #f5f5f5;
+  border-color: #d4d4d4;
+}
+
+.binx-input::placeholder {
+  color: #b0b0b0;
+}
+
+.binx-btn {
+  min-height: 30px;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    max-width: 320px;
+    padding-inline: 0.9rem;
+  }
+
+  .login-card__hero {
+    height: 146px;
+  }
+
+  .login-card__circle {
+    width: 144px;
+    height: 144px;
+  }
+
+  .login-card__brand {
+    top: 16px;
+    font-size: 3.1rem;
+    gap: 0.28rem;
+  }
+
+  .login-card__icon {
+    top: 83px;
+    font-size: 1.75rem;
+  }
+
+  .login-form {
+    max-width: 250px;
+  }
 }

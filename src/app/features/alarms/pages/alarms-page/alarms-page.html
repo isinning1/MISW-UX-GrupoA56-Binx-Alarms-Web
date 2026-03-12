@@ -19,33 +19,44 @@
               class="bi"
               [ngClass]="
                 alarm.status === 'pendiente'
-                  ? 'bi-exclamation-triangle-fill'
-                  : 'bi-check-circle-fill'
+                  ? 'bi-exclamation-lg'
+                  : 'bi-bell-fill'
               "
             ></i>
           </span>
         </div>
 
-        <div class="alarm-row__content">
-          <div class="alarm-row__main">
-            <h2 class="alarm-row__title">{{ alarm.title }}</h2>
-            <p class="alarm-row__category">{{ alarm.category }}</p>
-          </div>
+        <div class="alarm-row__main">
+          <h2 class="alarm-row__title">{{ alarm.title }}</h2>
+          <p class="alarm-row__category">{{ alarm.category }}</p>
 
-          <div class="alarm-row__meta">
+          <div class="alarm-row__state-line">
             <span
-              class="alarm-row__badge"
+              class="alarm-row__state"
               [ngClass]="{
-                'alarm-row__badge--pending': alarm.status === 'pendiente',
-                'alarm-row__badge--done': alarm.status === 'atendida'
+                'alarm-row__state--pending': alarm.status === 'pendiente',
+                'alarm-row__state--done': alarm.status === 'atendida'
               }"
             >
-              {{ alarm.status === 'pendiente' ? 'Pendiente' : 'Atendida' }}
+              <i
+                class="bi"
+                [ngClass]="
+                  alarm.status === 'pendiente'
+                    ? 'bi-exclamation-triangle-fill'
+                    : 'bi-check-square-fill'
+                "
+                aria-hidden="true"
+              ></i>
+              <span>
+                {{ alarm.status === 'pendiente' ? 'Pendiente' : 'Atendida' }}
+              </span>
             </span>
-
-            <span class="alarm-row__date">{{ alarm.date }}</span>
-            <span class="alarm-row__time">{{ alarm.time }}</span>
           </div>
+        </div>
+
+        <div class="alarm-row__meta">
+          <span class="alarm-row__date">{{ alarm.date }}</span>
+          <span class="alarm-row__time">{{ alarm.time }}</span>
         </div>
 
         <div class="alarm-row__actions">

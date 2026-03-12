@@ -38,22 +38,64 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  font-size: $binx-font-size-md;
-  font-weight: 700;
-  color: #fff;
   flex: 0 0 auto;
+  background: #ffffff;
+  border: 1px solid $binx-border-soft;
 }
 
 .integration-row__logo--google {
-  background: #4285f4;
+  background: #ffffff;
+  border-color: #d9d9d9;
 }
 
 .integration-row__logo--microsoft {
-  background: #00a4ef;
+  background: #ffffff;
+  border-color: #d9d9d9;
 }
 
 .integration-row__logo--other {
-  background: $binx-primary;
+  background: #ffffff;
+  border-color: #d9d9d9;
+}
+
+.integration-row__google-logo {
+  color: #4285f4;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.integration-row__microsoft-logo {
+  display: grid;
+  grid-template-columns: repeat(2, 8px);
+  grid-template-rows: repeat(2, 8px);
+  gap: 2px;
+}
+
+.integration-row__microsoft-logo span:nth-child(1) {
+  background-color: #f25022;
+}
+
+.integration-row__microsoft-logo span:nth-child(2) {
+  background-color: #7fba00;
+}
+
+.integration-row__microsoft-logo span:nth-child(3) {
+  background-color: #00a4ef;
+}
+
+.integration-row__microsoft-logo span:nth-child(4) {
+  background-color: #ffb900;
+}
+
+.integration-row__other-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $binx-primary;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .integration-row__info {

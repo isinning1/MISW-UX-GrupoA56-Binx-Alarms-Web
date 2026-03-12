@@ -12,7 +12,24 @@
             [ngClass]="getProviderClass(integration.provider)"
             aria-hidden="true"
           >
-            {{ getProviderLetter(integration.provider) }}
+            @switch (integration.provider) {
+              @case ('google') {
+                <span class="integration-row__google-logo">G</span>
+              }
+              @case ('microsoft') {
+                <span class="integration-row__microsoft-logo">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              }
+              @default {
+                <span class="integration-row__other-logo">
+                  <i class="bi bi-building"></i>
+                </span>
+              }
+            }
           </div>
 
           <div class="integration-row__info">

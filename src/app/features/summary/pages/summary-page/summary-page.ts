@@ -4,7 +4,7 @@ import { SummaryService } from '../../../../core/services/summary';
 import {
   SummaryData,
   SummaryMetric,
-  SummaryPoint,
+  SummarySeriesPoint,
 } from '../../../../core/models/summary.model';
 
 @Component({
@@ -20,73 +20,44 @@ export class SummaryPage {
 
   protected readonly summary: SummaryData = this.summaryService.getSummary();
   protected readonly metrics: SummaryMetric[] = this.summary.metrics;
-  protected readonly points: SummaryPoint[] = this.summary.chartPoints;
+  protected readonly points: SummarySeriesPoint[] = this.summary.chartPoints;
 
   protected readonly svgWidth = 860;
-  protected readonly svgHeight = 260;
+  protected readonly svgHeight = 320;
   protected readonly paddingX = 44;
   protected readonly paddingTop = 24;
-  protected readonly paddingBottom = 36;
+  protected readonly paddingBottom = 34;
 
   protected get maxValue(): number {
-    const values = this.points.map((point) => point.value);
+    const values = this.points.flatMap((point) => [
+      point.attended,
+      point.postponed,
+    ]);
+
     return Math.max(...values, 1);
   }
 
-  protected get polylinePoints(): string {
-    if (!this.points.length) {
-      return '';
-    }
-
-    const usableWidth = this.svgWidth - this.paddingX * 2;
-    const usableHeight =
-      this.svgHeight - this.paddingTop - this.paddingBottom;
-
-    return this.points
-      .map((point, index) => {
-        const x =
-          this.paddingX +
-          (usableWidth * index) / Math.max(this.points.length - 1, 1);
-
-        const y =
-          this.paddingTop +
-          usableHeight -
-          (point.value / this.maxValue) * usableHeight;
-
-        return `${x},${y}`;
-      })
-      .join(' ');
+  protected get attendedPolylinePoints(): string {
+    return this.buildPolyline('attended');
   }
 
-  protected get areaPoints(): string {
-    if (!this.points.length) {
-      return '';
+  protected get postponedPolylinePoints(): string {
+    return this.buildPolyline('postponed');
+  }
+
+  protected get attendedAreaPoints(): string {
+    return this.buildArea('attended');
+  }
+
+  protected getToneClass(tone: SummaryMetric['tone']): string {
+    switch (tone) {
+      case 'success':
+        return 'summary-card--success';
+      case 'warning':
+        return 'summary-card--warning';
+      default:
+        return 'summary-card--danger';
     }
-
-    const usableWidth = this.svgWidth - this.paddingX * 2;
-    const usableHeight =
-      this.svgHeight - this.paddingTop - this.paddingBottom;
-
-    const linePoints = this.points
-      .map((point, index) => {
-        const x =
-          this.paddingX +
-          (usableWidth * index) / Math.max(this.points.length - 1, 1);
-
-        const y =
-          this.paddingTop +
-          usableHeight -
-          (point.value / this.maxValue) * usableHeight;
-
-        return `${x},${y}`;
-      })
-      .join(' ');
-
-    const startX = this.paddingX;
-    const endX = this.paddingX + usableWidth;
-    const baseY = this.svgHeight - this.paddingBottom;
-
-    return `${startX},${baseY} ${linePoints} ${endX},${baseY}`;
   }
 
   protected getPointX(index: number): number {
@@ -109,14 +80,39 @@ export class SummaryPage {
     );
   }
 
-  protected getToneClass(tone: SummaryMetric['tone']): string {
-    switch (tone) {
-      case 'success':
-        return 'summary-card--success';
-      case 'warning':
-        return 'summary-card--warning';
-      default:
-        return 'summary-card--primary';
+  private buildPolyline(key: 'attended' | 'postponed'): string {
+    if (!this.points.length) {
+      return '';
     }
+
+    return this.points
+      .map((point, index) => {
+        const x = this.getPointX(index);
+        const y = this.getPointY(point[key]);
+
+        return `${x},${y}`;
+      })
+      .join(' ');
+  }
+
+  private buildArea(key: 'attended'): string {
+    if (!this.points.length) {
+      return '';
+    }
+
+    const linePoints = this.points
+      .map((point, index) => {
+        const x = this.getPointX(index);
+        const y = this.getPointY(point[key]);
+
+        return `${x},${y}`;
+      })
+      .join(' ');
+
+    const startX = this.paddingX;
+    const endX = this.svgWidth - this.paddingX;
+    const baseY = this.svgHeight - this.paddingBottom;
+
+    return `${startX},${baseY} ${linePoints} ${endX},${baseY}`;
   }
 }

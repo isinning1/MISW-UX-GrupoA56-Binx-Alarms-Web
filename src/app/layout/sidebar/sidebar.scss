@@ -9,25 +9,62 @@
 
 .sidebar__brand {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: $binx-topbar-height;
+  min-height: 38px;
+  padding: 0.2rem 0.25rem 0.15rem;
   border-bottom: 1px solid $binx-divider;
-  padding: 0.15rem 0.35rem;
+  background-color: #f8f8f8;
 }
 
-.sidebar__brand-text {
-  color: $binx-text;
-  font-size: $binx-font-size-xs;
-  font-weight: 700;
+.sidebar__brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.06rem;
+  color: #1e88e5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  line-height: 1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sidebar__brand-logo span {
+  display: inline-block;
+  line-height: 1;
+}
+
+.sidebar__brand-logo span:nth-child(1) {
+  transform: rotate(-7deg) translateY(1px);
+}
+
+.sidebar__brand-logo span:nth-child(2) {
+  transform: rotate(-1deg);
+}
+
+.sidebar__brand-logo span:nth-child(3) {
+  transform: rotate(1deg);
+}
+
+.sidebar__brand-logo span:nth-child(4) {
+  transform: rotate(6deg) translateY(1px);
+}
+
+.sidebar__brand-icon {
+  margin-top: 0.02rem;
+  color: $binx-text;
+  font-size: 0.46rem;
+  line-height: 1;
 }
 
 .sidebar__nav {
   display: flex;
   flex-direction: column;
-  padding-top: 0.4rem;
+  padding-top: 0.55rem;
 }
 
 .sidebar__item {
@@ -35,8 +72,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
-  min-height: 64px;
+  gap: 0.38rem;
+  min-height: 62px;
   padding: 0.45rem 0.35rem;
   color: $binx-text;
   text-align: center;
@@ -60,12 +97,12 @@
 }
 
 .sidebar__icon {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   line-height: 1;
 }
 
 .sidebar__label {
-  font-size: $binx-font-size-xs;
+  font-size: 0.68rem;
   font-weight: 500;
   line-height: 1.2;
   word-break: break-word;
