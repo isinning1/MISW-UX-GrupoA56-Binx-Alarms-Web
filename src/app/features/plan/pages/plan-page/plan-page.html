@@ -1,1 +1,41 @@
-<p>plan-page works!</p>
+<section class="plan-page">
+  <header class="plan-page__header">
+    <h1 class="page-title">Plan del Día</h1>
+  </header>
+
+  <div class="plan-list">
+    @for (item of items; track item.id) {
+      <article class="plan-row binx-card">
+        <div class="plan-row__left">
+          <div class="plan-row__date">{{ item.date }}</div>
+          <div class="plan-row__time">{{ item.time }}</div>
+        </div>
+
+        <div class="plan-row__center">
+          <h2 class="plan-row__title">{{ item.title }}</h2>
+          <p class="plan-row__category">{{ item.category }}</p>
+        </div>
+
+        <div class="plan-row__right">
+          <span
+            class="plan-row__status"
+            [ngClass]="{
+              'plan-row__status--pending': item.status === 'pendiente',
+              'plan-row__status--done': item.status === 'atendida'
+            }"
+            aria-hidden="true"
+          >
+            <i
+              class="bi"
+              [ngClass]="
+                item.status === 'pendiente'
+                  ? 'bi-exclamation-triangle-fill'
+                  : 'bi-check-circle-fill'
+              "
+            ></i>
+          </span>
+        </div>
+      </article>
+    }
+  </div>
+</section>
